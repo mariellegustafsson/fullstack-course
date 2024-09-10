@@ -6,7 +6,6 @@ sequenceDiagram
     activate server
     server-->>browser: HTTP status code 302: the server requests the browser to perform a new GET request
     deactivate server
-Note right of browser: Data is sent to the server using a POST request
 
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
@@ -24,13 +23,10 @@ Note right of browser: Data is sent to the server using a POST request
     server-->>browser: the JavaScript file
     deactivate server
 
-    Note right of browser: The browser starts executing the JavaScript code that fetches the JSON from the server
-
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
     activate server
     server-->>browser: [{ "content": "sad", "date": "2024-09-09T23:56:13.591Z" }, ... ]
     
     deactivate server
 
-    Note right of browser: The browser executes the callback function that renders the notes
   
