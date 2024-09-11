@@ -8,17 +8,14 @@ const Header = (props) => {
 
 const Content = (a) => {
   return(
+   
     <div>
-      <p>
-        {a.p1} {a.e1}
-        </p>
-      <p>
-        {a.p2} {a.e2}
-      </p>
-      <p>
-        {a.p3} {a.e3}
-      </p>
-    </div>
+    <Part part={a.p1} exercise={a.e1}/>
+    <Part part={a.p2} exercise={a.e2}/>
+    <Part part={a.p3} exercise={a.e3}/>
+  </div>
+   
+ 
   )
 }
 
@@ -29,6 +26,16 @@ const Total = (b) =>{
 
     </div>
   )
+}
+
+const Part = (c) => {
+return(
+  <div>
+    <p>{c.part} {c.exercise}</p>
+
+  </div>
+)
+
 }
 
 const App = () => {
@@ -51,4 +58,5 @@ const App = () => {
 }
 
 export default App
+
 
