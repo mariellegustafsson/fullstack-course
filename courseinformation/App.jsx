@@ -1,7 +1,8 @@
 const Header = (props) => {
+  const {course} = props
   return(
   <div>
-     <h1>{props.course}</h1>
+     <h1>{course.name}</h1>
   </div>
   )
 }
@@ -10,9 +11,9 @@ const Content = (props) => {
   const {part} = props
   return(
     <div>
-    <Part  parts={part[0]}/>
-    <Part parts={part[1]}/>
-    <Part parts={part[2]}/>
+    <Part  parts={part.parts[0]}/>
+    <Part parts={part.parts[1]}/>
+    <Part parts={part.parts[2]}/>
   </div>
    
  
@@ -23,7 +24,7 @@ const Total = (props) =>{
   const  {p} = props
   return(
     <div>
-      <p>Number of exercises {p[0].exercises + p[1].exercises + p[2].exercises}</p>
+      <p>Number of exercises {p.parts[0].exercises + p.parts[1].exercises + p.parts[2].exercises}</p>
 
     </div>
   )
@@ -51,8 +52,10 @@ const App = () => {
   const exercises3 = 14
   */}
 
-  const course = 'Half Stack application development'
-  const parts = [{
+  const course = {
+    name: 'Half Stack application development',
+  parts: [
+    {
     name: 'Fundamentals of React',
     exercises: 10
   },
@@ -64,18 +67,20 @@ const App = () => {
     name: 'State of a component',
     exercises: 14
   }]
+}
 
   return (
     <div>
 
 <Header course={course}/>
-<Content part={parts}/>
-<Total p={parts}/>
+<Content part={course}/>
+<Total p={course}/>
     </div>
   )
 
 }
 export default App
+
 
 
 
