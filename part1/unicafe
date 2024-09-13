@@ -4,12 +4,24 @@ const Button = ({ handleClick, text }) => (
   <button onClick={handleClick}>
     {text}
   </button>
+
 )
 
-const Display = ({numbers}) =>{
+
+
+const Statistics = ({numbers}) =>{
+
+  
   const total = numbers[0] + numbers[1] + numbers[2]
   const average = (numbers[0]*1 + numbers[1]*0 + numbers[2]*(-1))/total
   const percentage = 100*numbers[0]/total
+
+  if (total == 0){
+    return (
+<div> No feedback given </div>
+ ) }
+
+  else{
   return(
   <div>
     
@@ -19,12 +31,11 @@ const Display = ({numbers}) =>{
     <p>all {total} </p>
     <p>average {average} </p>
     <p>positive {percentage} % </p>
-    
-
-
-    
   </div>
-)}
+
+  )
+}
+}
 
 
 const App = () => {
@@ -48,7 +59,7 @@ const App = () => {
       <Button handleClick={handleBadClick} text='bad' />
       
       <h1> statistics </h1>
-      <Display numbers={values} />
+      < Statistics numbers = {values} />
     </div>
   )
 }
